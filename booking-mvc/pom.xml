@@ -9,6 +9,8 @@
   <version>1.0.0.BUILD-SNAPSHOT</version>
 
 	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.6</java.version>
 		<webflow-version>2.4.2.RELEASE</webflow-version>
 		<spring-framework-version>4.1.6.RELEASE</spring-framework-version>
 		<springsecurity-version>4.0.1.RELEASE</springsecurity-version>
@@ -43,7 +45,7 @@
 	</dependencyManagement>
 
 	<dependencies>
-	
+
 		<!-- Thymeleaf -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
@@ -70,7 +72,7 @@
 			<artifactId>thymeleaf-extras-conditionalcomments</artifactId>
 			<version>${thymeleaf-extras-conditionalcomments-version}</version>
 		</dependency>
-		
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -89,7 +91,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-		</dependency>				
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -133,8 +135,8 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${springsecurity-version}</version>					
-        </dependency>	
+			<version>${springsecurity-version}</version>
+        </dependency>
 
 		<!-- Logging -->
 		<dependency>
@@ -159,7 +161,7 @@
 			<version>1.2.16</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- Database, JPA -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
@@ -172,7 +174,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.6.9.Final</version>
 		</dependency>
-		
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -226,8 +228,8 @@
 			<version>4.3.0.Final</version>
 		</dependency>
 		<!--
-			JAXB is needed when running on Java 5. In this environment these dependencies have to be added 
-			(unless xml	configuration is explicitly disabled via Configuration.ignoreXmlConfiguration) 
+			JAXB is needed when running on Java 5. In this environment these dependencies have to be added
+			(unless xml	configuration is explicitly disabled via Configuration.ignoreXmlConfiguration)
 			On Java 6 jaxb is part of the runtime environment.
 		-->
         <dependency>
@@ -235,7 +237,7 @@
           <artifactId>jaxb-api</artifactId>
           <version>2.1</version>
         </dependency>
-        
+
 		<!--  Joda Time -->
 		<dependency>
 			<groupId>joda-time</groupId>
@@ -247,7 +249,7 @@
 			<artifactId>joda-time-jsptags</artifactId>
 			<version>1.1.1</version>
 			<scope>runtime</scope>
-		</dependency>		
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -283,10 +285,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.5.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                    </compilerArgs>
 				</configuration>
 			</plugin>
 			<plugin>

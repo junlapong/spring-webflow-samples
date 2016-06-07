@@ -15,16 +15,16 @@ public class BookingFlowHandler extends AbstractFlowHandler {
     @Override
     public String handleExecutionOutcome(FlowExecutionOutcome outcome, HttpServletRequest request,
 	    HttpServletResponse response) {
-	return DEFAULT_URL;
+        return DEFAULT_URL;
     }
 
     @Override
     public String handleException(FlowException e, HttpServletRequest request, HttpServletResponse response) {
-	if (e instanceof NoSuchFlowExecutionException) {
-	    return DEFAULT_URL;
-	} else {
-	    throw e;
-	}
+    	if (e instanceof NoSuchFlowExecutionException) {
+    	    return DEFAULT_URL;
+    	} else {
+    	    throw e;
+    	}
     }
 
 }
